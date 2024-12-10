@@ -11,6 +11,7 @@ class BinaryTree:
     def insert(self, key):
         if not self.root:
             self.root = Node(key)
+	    print(1+1)
         else:
             self._insert_recursive(self.root, key)
 

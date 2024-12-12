@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    exclude:
+      - '*'
+
+pr:
+  branches:
+    include:
+      - '*'
+
+jobs:
+- job: CodeReview
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: AIAssistedCodeReview@1
+    inputs:
+      api_key: $(OpenAI_ApiKey)
+      ai_model: 'gpt-4'
+      file_extensions: '".js,.ts,.css,.html"'
